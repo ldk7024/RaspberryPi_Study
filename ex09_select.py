@@ -7,9 +7,12 @@ conn = ps.connect(
     db='test')
 
 curs = conn.cursor()
-sql ='select * from sensordb'
-curs.execute(sql)
-result = curs.fetchall()
-for s,t in result:
-    print('밝기 : {} / 시각 : {}'.format(s,t))
-print(result)
+
+def sel():
+    sql ='select * from sensordb'
+    curs.execute(sql)
+    result = curs.fetchall()
+    r= '<br>'.join(map(str,result))
+    return r
+# for s,t in result:
+#    print('밝기 : {} / 시각 : {}'.format(s,t))
